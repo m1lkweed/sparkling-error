@@ -1,5 +1,5 @@
 // Create a single type of error
-// "XX" should march the line number of ERROR_IF's __builtin_choose_expr
+// "XX" should match the line number of ERROR_IF's __builtin_choose_expr
 [[gnu::error(
 "[54D[01m[K[m[01m"
 "It's only cursed code if it compiles"
@@ -7,7 +7,7 @@
 )]]void custom_error();
 
 // Create a single type of warning
-// "XX" should march the line number of WARN_IF's __builtin_choose_expr
+// "XX" should match the line number of WARN_IF's __builtin_choose_expr
 [[gnu::warning(
 "[58D[01m[K[m[01m"
 "Here's a custom warning"
@@ -33,12 +33,7 @@ custom_msg_nop,/*[2F[7G[K*/\
 custom_warning/*[2F[7G[K*/\
 )(/*~~~pad~~~~*/))//[F[7G[K[2F[8C[01;35m[KSoup is good food.[m
 
-#error test //[G[K
 int main(void){
-	tagged_block{
-		tagged_block{
-			//code
-		}
-	}
+	WARN_IF(1);
+	ERROR_IF(1);
 }
-
